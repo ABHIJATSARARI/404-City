@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 City: The Glitch Metropolis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes flicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+      }
+      .animate-flicker {
+        animation: flicker 1.5s infinite;
+      }
+      @keyframes text-glitch {
+        0% {
+          text-shadow: 0.05em 0 0 #00ff00, -0.025em -0.05em 0 #ff00ff, 0.025em 0.05em 0 #00ffff;
+        }
+        25% {
+          text-shadow: -0.05em 0 0 #00ff00, 0.025em 0.05em 0 #ff00ff, -0.025em -0.05em 0 #00ffff;
+        }
+        50% {
+          text-shadow: 0.025em 0.05em 0 #00ff00, 0.05em 0 0 #ff00ff, 0 -0.05em 0 #00ffff;
+        }
+        100% {
+          text-shadow: -0.025em -0.05em 0 #00ff00, -0.05em -0.025em 0 #ff00ff, 0.05em 0.025em 0 #00ffff;
+        }
+      }
+      .glitch-text {
+        animation: text-glitch 75ms infinite;
+      }
+      @keyframes text-glitch-subtle {
+        0%, 90% { text-shadow: none; transform: none; }
+        92% { text-shadow: 0.03em 0 0 #00ff00, -0.015em -0.03em 0 #ff00ff, 0.01em 0.02em 0 #00ffff; transform: translate(-2px, 2px); }
+        94% { text-shadow: -0.03em 0 0 #00ff00, 0.015em 0.03em 0 #ff00ff, -0.01em -0.02em 0 #00ffff; transform: translate(2px, -2px); }
+        96% { text-shadow: 0.02em 0.03em 0 #00ff00, 0.03em 0 0 #ff00ff, 0 -0.03em 0 #00ffff; transform: translate(0, 0); }
+        98%, 100% { text-shadow: none; transform: none; }
+      }
+      .glitch-text-subtle {
+        animation: text-glitch-subtle 5.5s infinite;
+      }
+      @keyframes text-glitch-color {
+        0%, 92%, 100% {
+          text-shadow: none;
+          transform: none;
+          color: inherit;
+        }
+        93% {
+          text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+          color: #ff00ff;
+          transform: skew(-5deg);
+        }
+        94% {
+          text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+          color: #00ffff;
+          transform: skew(5deg);
+        }
+      }
+      .glitch-text-color {
+        animation: text-glitch-color 4s infinite ease-in-out;
+      }
+      @keyframes log-entry-appear {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+          clip-path: inset(50% 0 50% 0);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(-2px);
+          clip-path: inset(0 0 0 0);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+          clip-path: inset(0 0 0 0);
+        }
+      }
+      .animate-log-entry {
+        animation: log-entry-appear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+      @keyframes pulse-health {
+        0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        50% { box-shadow: 0 0 8px 3px rgba(16, 185, 129, 0.7); }
+        100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      }
+      .animate-pulse-health {
+        animation: pulse-health 0.5s ease-out;
+      }
+      @keyframes pulse-armor {
+        0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        50% { box-shadow: 0 0 8px 3px rgba(59, 130, 246, 0.7); }
+        100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+      }
+      .animate-pulse-armor {
+        animation: pulse-armor 0.5s ease-out;
+      }
+      @keyframes pulse-glitch {
+        0% { box-shadow: 0 0 0 0 rgba(217, 70, 239, 0); }
+        50% { box-shadow: 0 0 8px 3px rgba(217, 70, 239, 0.7); }
+        100% { box-shadow: 0 0 0 0 rgba(217, 70, 239, 0); }
+      }
+      .animate-pulse-glitch {
+        animation: pulse-glitch 0.5s ease-out;
+      }
+      @keyframes glitch-text-secondary {
+        /* Long period of stability */
+        0%, 97%, 100% {
+          transform: none;
+          text-shadow: none;
+          opacity: 1;
+        }
+        /* A more intense, short burst */
+        97.5% {
+          transform: translate(-3px, 1px) skew(-7deg) scale(1.05);
+          text-shadow: 4px 0 0 #ff00ff, -4px 0 0 #00ffff;
+          opacity: 0.8;
+        }
+        98% {
+          transform: translate(3px, -2px) skew(6deg) scale(1.02);
+          text-shadow: 2px 0 0 #00ff00, -2px 0 0 #ff00ff;
+          opacity: 1;
+        }
+        98.5% {
+          transform: translate(1px, -1px) skew(-2deg) scale(1);
+          text-shadow: none;
+          opacity: 0.9;
+        }
+        99% {
+          transform: translate(0, 0) skew(0);
+          text-shadow: none;
+          opacity: 1;
+        }
+      }
+      .glitch-text-secondary {
+        animation: glitch-text-secondary 8s infinite ease-in-out;
+      }
+      @keyframes flash-danger {
+        50% { 
+          box-shadow: 0 0 12px 4px rgba(220, 38, 38, 0.7); 
+        }
+      }
+      .animate-flash-danger {
+        animation: flash-danger 1.2s infinite ease-in-out;
+      }
+      @keyframes alert-glow {
+        50% { 
+          border-color: rgba(239, 68, 68, 0.9);
+          box-shadow: 0 0 12px 4px rgba(220, 38, 38, 0.5); 
+        }
+      }
+      .animate-alert-glow {
+        animation: alert-glow 1.8s infinite ease-in-out;
+      }
+      @keyframes proximity-glow {
+        50% { 
+          border-color: rgba(234, 179, 8, 0.8);
+          box-shadow: 0 0 10px 3px rgba(202, 138, 4, 0.4); 
+        }
+      }
+      .animate-proximity-glow {
+        animation: proximity-glow 2.5s infinite ease-in-out;
+      }
+      @keyframes critical-error-bg {
+        0%, 100% { background-color: rgba(220, 38, 38, 0.7); opacity: 1; }
+        10% { background-color: rgba(0,0,0,0.8); }
+        20% { background-color: rgba(220, 38, 38, 0.5); opacity: 0.9; }
+        50% { background-color: rgba(0,0,0,0.9); transform: scale(1.01); }
+        80% { background-color: rgba(220, 38, 38, 0.8); }
+      }
+      .animate-critical-error-bg {
+        animation: critical-error-bg 200ms infinite;
+      }
+      @keyframes critical-error-text {
+        0%, 100% { transform: skew(0); }
+        10% { transform: skew(-15deg) translateX(10px); }
+        20% { transform: skew(15deg) translateX(-10px); }
+        30% { transform: skew(-10deg); }
+        40% { transform: skew(10deg); }
+        50% { transform: scale(1.1); text-shadow: 0 0 20px #ff0000; }
+        60% { transform: skew(5deg) translateY(5px); }
+        70% { transform: skew(-5deg) translateY(-5px); }
+        80% { transform: skew(0); }
+      }
+      .animate-critical-error-text {
+        animation: critical-error-text 250ms infinite;
+      }
+      @keyframes screen-shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+      .animate-screen-shake {
+        animation: screen-shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      @keyframes hud-critical-flash {
+        0%, 100% { opacity: 1; transform: translateX(0); }
+        10% { opacity: 0.5; transform: translateX(-10px); background-color: rgba(255,0,0,0.2); }
+        20% { opacity: 1; transform: translateX(10px); }
+        30% { opacity: 0.3; transform: translateX(-5px); }
+        40% { opacity: 1; transform: translateX(5px); }
+        50% { opacity: 0.6; background-color: rgba(255,0,0,0.3); }
+        60% { opacity: 1; }
+      }
+      .animate-hud-critical-flash {
+        animation: hud-critical-flash 150ms infinite;
+      }
+      @keyframes logo-glitch {
+        0%, 100% { transform: translate(0, 0); }
+        20% { transform: translate(-3px, 2px); text-shadow: 0 0 5px #ff00ff; }
+        40% { transform: translate(2px, -3px); text-shadow: 0 0 5px #00ffff; }
+        60% { transform: translate(-1px, 1px); text-shadow: 0 0 5px #00ff00; }
+        80% { transform: translate(1px, -1px); }
+      }
+      .animate-logo-glitch {
+        animation: logo-glitch 200ms infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      @keyframes boot-text-appear {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      .boot-line {
+        opacity: 0;
+        animation: boot-text-appear 0.5s forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-black text-gray-200 font-mono">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+PLACEHOLDER FOR LOGO
+
+Instructions:
+- Replace this file by uploading your actual logo image as `assets/logo.png` (recommended) or `assets/logo.svg`.
+- Recommended sizes: for header banner ~1200x400 px, for compact logo ~420x140 px. Use optimized PNG or SVG.
+
+After adding your logo, commit the file and update the README badges (replace YOUR-USER/YOUR-REPO) so the header shows correctly.
