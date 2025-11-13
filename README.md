@@ -1,11 +1,10 @@
 <div align="center">
    <!-- Replace the image below with your uploaded logo: assets/logo.png -->
-   <img alt="Project Logo" src="assets/logo.png" width="420" height="140" style="max-width:100%;" />
+   <img alt="Project Logo" src="assets/logo.png" width="420" style="max-width:100%;" />
 
    <!-- Build / Actions badge: replace USER and REPO in the URL below -->
   
    <p>
-      <img alt="build-status" src="https://github.com/YOUR-USER/YOUR-REPO/actions/workflows/ci.yml/badge.svg" />
       <img alt="vite" src="https://img.shields.io/badge/bundler-vite-blue.svg" />
       <img alt="license" src="https://img.shields.io/badge/license-MIT-green.svg" />
    </p>
@@ -25,7 +24,7 @@ Quick start (local)
 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/abhijatsarari/your-repo.git
 cd your-repo
 ```
 
